@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RiGoogleLine } from "react-icons/ri";
 import { SiGithub } from "react-icons/si";
 import { PiFacebookLogoLight } from "react-icons/pi";
@@ -7,16 +7,36 @@ import { FaInstagram } from "react-icons/fa";
 import qzone1 from '../../assets/qZone1.png'
 import qzone2 from '../../assets/qZone2.png'
 import qzone3 from '../../assets/qZone3.png'
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const RightNav = () => {
+  const {popupgoogle,popupgit} = useContext(AuthContext);
+  const googlepop = () =>{
+    popupgoogle()
+    .then(result =>{
+      console.log(result.user);
+  })
+  .catch(error =>{
+      console.log(error.message);
+  })
+  }
+  const gitpopu = () => {
+    popupgit()
+    .then(result =>{
+      console.log(result.user);
+  })
+  .catch(error =>{
+      console.log(error.message);
+  })
+  }
   return (
     <div>
       <div className="p-2  space-y-3 mb-8">
         <h3 className="text-2xl font-semibold">Log With</h3>
-        <button className="btn btn-outline w-full text-blue-500">
+        <button onClick={googlepop} className="btn btn-outline w-full text-blue-500">
           <RiGoogleLine></RiGoogleLine> Login with Google
         </button>
-        <button className="btn btn-outline w-full">
+        <button onClick={gitpopu} className="btn btn-outline w-full">
           <SiGithub></SiGithub> Login with Github
         </button>
       </div>

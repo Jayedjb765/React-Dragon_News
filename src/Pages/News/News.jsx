@@ -13,6 +13,7 @@ const News = () => {
            <div className="grid md:grid-cols-4">
             <div className="col-span-3">
                 <h3 className="text-2xl">Dragons</h3>
+                
 
             
             </div>
