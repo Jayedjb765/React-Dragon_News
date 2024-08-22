@@ -50,7 +50,7 @@ const Navbar = () => {
             src={userprof}/>
         </div>
         </div>
-       <Link><button className="btn px-5 ml-3">Login</button></Link>
+       <Link to="/log"><button className="btn px-5 ml-3">Login</button></Link>
       </div>
     </div>
   );
