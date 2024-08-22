@@ -1,8 +1,9 @@
 import { CiBookmark } from "react-icons/ci";
 import { CiShare2 } from "react-icons/ci";
 import { AiOutlineEye } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const Item = ({ item }) => {
-  const { author, title, details, image_url,total_view } = item;
+  const { author, title, details, image_url,total_view,_id } = item;
   return (
     <div className="space-y-2 mb-5 border ">
       <div className=" justify-between flex bg-slate-100">
@@ -27,7 +28,10 @@ const Item = ({ item }) => {
       <div className="px-2">
         <h3 className="text-xl font-bold">{title}</h3>
         <img src={image_url} alt="" />
-        <p className="text-base mb-2">{details}</p>
+        {
+          details.length >200 ? <p className="text-base mb-2">{details.slice(0,200)} <br /> <Link to={`/news/${_id}`} className="bg-teal-300 p-1 rounded-lg" >Show More</Link></p>:
+          <p className="text-base mb-2">{details}</p>
+        }
       </div>
       <div className="justify-between flex border-y py-2">
         <div className="rating">

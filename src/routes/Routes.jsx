@@ -3,6 +3,8 @@ import Root from "../Layouts/Root";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import News from "../Pages/News/News";
+import PrivateRoute from "./PrivateRoute";
 
 const route =  createBrowserRouter([
     {
@@ -12,6 +14,12 @@ const route =  createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>
+
+            },
+            {
+                path: "/news/:id",
+                element:<PrivateRoute><News></News> </PrivateRoute>                       
+
 
             },
             {
